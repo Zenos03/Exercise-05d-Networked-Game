@@ -11,6 +11,9 @@ var velocity = Vector2.ZERO
 
 func _ready():
 	camera.current = true
+	rpc_unreliable("_set_position", global_transform.origin)
+	rpc_unreliable("_set_rotation", rotation.y)
+	rpc_unreliable("_die")
 
 func _physics_process(_delta):
 	velocity = get_input()*speed
